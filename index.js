@@ -23,3 +23,11 @@ var uniqueInOrder = function (iterable) {
     //     }
     //   }
     //   return xmasT;
+    
+    return [...new Array(height).keys()]
+    .map((row, i) => row + i + 1)
+    .reverse()
+    .map((row, i) => " ".repeat(i) + "*".repeat(row) + " ".repeat(i))
+    .reverse()
+    .join("\n");
+}
