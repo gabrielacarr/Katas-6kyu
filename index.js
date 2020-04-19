@@ -6,4 +6,20 @@ var uniqueInOrder = function (iterable) {
     return [...iterable].filter((item, index, arr) => item !== arr[index + 1]);
   };
 
-  
+  function christmasTree(height) {
+    //   let xmasT = '';
+    //   for(let i = 0; i<height; i++) {
+    //     for(let j = 0; j < (height -i -1); j++) {
+    //       xmasT+= " ";
+    //     }
+    //     for(let k = 0; k < (2*i+1); k++) {
+    //       xmasT+="*";
+    //     }
+    //     for(let r = 0; r < (height -i -1); r++) {
+    //       xmasT+= " ";
+    //     }
+    //     if(i !== height-1) {
+    //       xmasT += '\n';
+    //     }
+    //   }
+    //   return xmasT;
