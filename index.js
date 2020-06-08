@@ -31,3 +31,52 @@ var uniqueInOrder = function (iterable) {
     .reverse()
     .join("\n");
 }
+
+// https://www.codewars.com/kata/529e2e1f16cb0fcccb000a6b/train/javascript
+
+/**
+ * Returns a [parts]-length array of equal or nearly equal
+ * integers that add up to [num].
+ */
+// splitInteger(20, 6)  // returns [3, 3, 3, 3, 4, 4]
+var splitInteger = function (num, parts) {
+  // solution one
+  let additional = num % parts;
+  return [
+    ...new Array(parts - additional).fill(Math.floor(num / parts)),
+    ...new Array(additional).fill(Math.ceil(num / parts)),
+  ];
+
+  // solution two:
+  //   let base = Math.floor(num/parts);
+  //   let answer = [];
+  //   // let additional = num - (parts*base);
+  //   let additional = num % parts;
+  //   for(let i = 0; i < parts; i++) {
+  //     answer[i]=base;
+  //   }
+  //   for(let i = 1; i <= additional; i++) {
+  //     answer[parts-i]+=1;
+  //   }
+  //   return answer
+
+  // solution three
+  //   let answer = [];
+  //   let numOne = Math.floor(num/parts);
+  //   let amountOfTimeOne = parts-(num%numOne);
+  //   let amountOfTimeTwo = parts-amountOfTimeOne;
+  //   let numTwo = (num - (numOne*amountOfTimeOne)) / amountOfTimeTwo;
+  //   while(answer.length < amountOfTimeOne) {
+  //     answer.push(numOne);
+  //   }
+  //   while(answer.length < parts) {
+  //     answer.push(numTwo);
+  //   }
+  //   return answer;
+
+  // soltution four
+  //   var array = [];
+  //   for (var i = 0; i < parts; ++i)
+  //     array[i] = Math.floor(num / parts) + (i < num % parts);
+  //   return array;
+};
