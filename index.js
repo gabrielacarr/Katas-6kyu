@@ -31,7 +31,6 @@ var uniqueInOrder = function (iterable) {
     .reverse()
     .join("\n");
 }
-
 // https://www.codewars.com/kata/529e2e1f16cb0fcccb000a6b/train/javascript
 
 /**
@@ -104,7 +103,6 @@ function letterCount(s) {
   );
 }
 
-
 // https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/javascript
 function isPangram(string) {
   //...
@@ -146,8 +144,7 @@ function moreZeros(s) {
   }
   return [...new Set(solution)];
 }
-
-    // Solution 2
+ // Solution 2
 
 // return [...new Set([...s].filter((letter) => {
 //     let binary = letter.charCodeAt().toString(2);
@@ -191,3 +188,15 @@ function hungrySeven(arr) {
 
   //   return Math.min(...Object.keys(recipe).map(key => Math.floor(available[key]/recipe[key] || 0)))
 }
+// https://www.codewars.com/kata/5a959662373c2e761d000183/train/javascript
+
+const ticker = (text, width, tick) => {
+  text = [...text];
+  const spaces = Array.from({ length: width }, (_) => " ");
+  text = spaces.concat(text);
+  for (let i = 0; i < tick; i++) {
+    let ch = text.shift();
+    text.push(ch);
+  }
+  return text.slice(0, width).join("");
+};
