@@ -208,3 +208,23 @@ const ticker = (text, width, tick) => {
 //   return result;
 
 // https://www.codewars.com/kata/5848565e273af816fb000449/train/javascript
+var encryptThis = function (text) {
+  //   console.log(text.split(' '))
+  return text
+    .split(" ")
+    .map((v) => {
+      let wordArr = [...v];
+      if (v.length > 2) {
+        [wordArr[1], wordArr[wordArr.length - 1]] = [
+          wordArr[wordArr.length - 1],
+          wordArr[1],
+        ];
+        //       let hv = wordArr[1];
+        //       wordArr[1] = wordArr[wordArr.length-1];
+        //       wordArr[wordArr.length-1] = hv;
+      }
+      wordArr[0] = wordArr[0].charCodeAt();
+      return wordArr.join("");
+    })
+    .join(" ");
+};
