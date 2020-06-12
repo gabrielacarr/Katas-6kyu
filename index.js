@@ -200,3 +200,11 @@ const ticker = (text, width, tick) => {
   }
   return text.slice(0, width).join("");
 };
+// Solution 2
+//   const space = ' '.repeat(width);
+//   const setText = space + text + space;
+//   tick = tick % (setText.length-width);
+//   const result = setText.substring(tick, tick+width);
+//   return result;
+
+// https://www.codewars.com/kata/5848565e273af816fb000449/train/javascript
