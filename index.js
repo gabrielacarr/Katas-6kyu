@@ -257,3 +257,37 @@ var encryptThis = function (text) {
     }
     return text.join('');
   */
+//  https://www.codewars.com/kata/5946a0a64a2c5b596500019a
+function splitAndAdd(arr, n) {
+  //   if(n < 1) return arr;
+  //   for(let i = 0; i < n  ; i++) {
+  //     let halfWay = Math.floor(arr.length/2);
+  //     let firstHalf = arr.slice(0, halfWay);
+  //     let secondHalf = arr.slice(halfWay);
+  //     if(firstHalf.length !== secondHalf.length) {
+  //       firstHalf.unshift(0);
+  //     }
+  //     arr = firstHalf.map((e,i) => e+secondHalf[i]);
+  //   }
+  //   return arr;
+
+  //   if(n < 1) return arr;
+  //   let halfWay = Math.floor(arr.length/2);
+  //   let firstHalf = arr.slice(0, halfWay);
+  //   let secondHalf = arr.slice(halfWay);
+  //   if(firstHalf.length !== secondHalf.length) {
+  //     firstHalf.unshift(0);
+  //   }
+  //   arr = firstHalf.map((e,i) => e+secondHalf[i]);
+  //   return splitAndAdd(arr, --n);
+  return n < 1
+    ? arr
+    : splitAndAdd(
+        (arr % 2 === 1 ? [0, ...arr] : arr)
+          .splice(0, arr.length / 2)
+          .reverse()
+          .reduce((a, v, i) => ((a[i] += v), a), arr.reverse())
+          .reverse(),
+        --n
+      );
+}
