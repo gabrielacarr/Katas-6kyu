@@ -299,3 +299,27 @@ function reverse(arr) {
     arr[right] = t;
   }
 }
+// https://www.codewars.com/kata/56c30ad8585d9ab99b000c54
+function workOnStrings(a, b) {
+  const counter = (s) =>
+    [...s.toLowerCase()].reduce((a, c) => (a[c] = a[c] + 1 || 1) && a, {});
+  let switchCase = (s) =>
+    s === s.toLowerCase() ? s.toUpperCase() : s.toLowerCase();
+  let toSwitchA = Object.keys(counter(a)).filter(
+    (letter) => counter(a)[letter] % 2 === 1
+  );
+  let toSwitchB = Object.keys(counter(b)).filter(
+    (letter) => counter(b)[letter] % 2 === 1
+  );
+  let replacedA = [...a]
+    .map((letter) =>
+      toSwitchB.includes(letter.toLowerCase()) ? switchCase(letter) : letter
+    )
+    .join("");
+  let replacedB = [...b]
+    .map((letter) =>
+      toSwitchA.includes(letter.toLowerCase()) ? switchCase(letter) : letter
+    )
+    .join("");
+  return replacedA + replacedB;
+}
