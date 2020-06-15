@@ -338,3 +338,37 @@ function iqTest(numbers) {
     ? numbers.indexOf(1) + 1
     : numbers.indexOf(0) + 1;
 }
+// console.time('iqtest1')
+// iqTest1('1 1 0 1');
+// console.timeEnd('iqtest1')
+
+// console.time('iqtest2')
+// iqTest2('1 1 0 1');
+// console.timeEnd('iqtest2')
+
+// https://www.codewars.com/kata/5592e3bd57b64d00f3000047
+
+// Solution 1
+// function findNb(m) {
+//   while(m > 0) {
+//     num++;
+//     m -= Math.pow(num, 3);
+//   }
+//   return 0 === m ? num : -1;
+// }
+
+//  Solution 2
+// function findNb(m, num = 1) {
+//   return m > 0 ? findNb(m -= Math.pow(num, 3), ++num) : (m === 0 ? num-1 : -1);
+// }
+
+// Solution 3
+function findNbRecursive(m, n) {
+  if (m === 0) return n - 1;
+  if (m < 0) return -1;
+  return findNbRecursive(m - n ** 3, n + 1);
+}
+
+function findNb(m) {
+  return findNbRecursive(m, 1);
+}
