@@ -323,3 +323,18 @@ function workOnStrings(a, b) {
     .join("");
   return replacedA + replacedB;
 }
+// https://www.codewars.com/kata/552c028c030765286c00007d/train/javascript
+function iqTest(numbers) {
+  //     let counterI = 0;
+  //     let indexI = 0;
+  //     let indexO = 0;
+  //     numbers = numbers.split(' ');
+  //     for(let i = 0; i < numbers.length; i++ ) {
+  //       numbers[i] % 2 === 0 ? (counterI++, indexI=i) : indexO=i;
+  //     }
+  //     return counterI === 1 ? indexI+1 : indexO+1
+  numbers = numbers.split(" ").map((num) => num % 2);
+  return numbers.reduce((a, v) => a + v) === 1
+    ? numbers.indexOf(1) + 1
+    : numbers.indexOf(0) + 1;
+}
