@@ -228,3 +228,32 @@ var encryptThis = function (text) {
     })
     .join(" ");
 };
+/** 
+  let firstLetter = true;
+    text = text.split('');
+    let secondLetter = 0;
+    let ls = 0;
+    let secondLetterCheck = 1;
+    for(let i = 0; i < text.length; i++) {
+      if(firstLetter) {
+        if(text[i+1] !== ' ') {
+          secondLetter = i+1;
+        }
+        text[i] = text[i].charCodeAt();
+        firstLetter = false;
+        secondLetterCheck = i + 1;
+      } else if(text[i] === ' ') {
+          if(secondLetter === secondLetterCheck) {
+            ls = text[i-1];
+            text[i-1] = text[secondLetter];
+            text[secondLetter] = ls;
+          }
+          firstLetter = true;
+      } else if() { 
+        ls = text[i];
+        text[i] = text[secondLetter];
+        text[secondLetter] = ls;
+      }
+    }
+    return text.join('');
+  */
